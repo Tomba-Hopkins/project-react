@@ -4,5 +4,17 @@
         "price": "25k",
         "tag": ["Snack", "Sweet", "Kids"],
         "img": "https://tomba-hopkins.github.io/Warung-Sidi/img/tentang-kami.jpg"
+    },
+    {
+        "name":"Burger",
+        "price": "30k",
+        "tag": ["Junkfood", "Yummy", "Meat"],
+        "img": "https://tomba-hopkins.github.io/Warung-Sidi/img/menu/3.jpg"
+    },
+    {
+        "name":"Salad",
+        "price": "10k",
+        "tag": ["Vegetable", "Health", "Natural"],
+        "img": "https://tomba-hopkins.github.io/Warung-Sidi/img/menu/2.jpg"
     }
 ]
