@@ -1,6 +1,7 @@
 import './App.css'
 import Search from './components/Search'
 import Content from './components/Content'
+import Tambahan from './components/Tambahan'
 
 import menus from './data/menu.json'
 import { useState } from 'react'
@@ -22,6 +23,9 @@ function App() {
       {
         menu.map((props, index) => <Content key={index} {...props} />)
       }
+      <hr />
+      <h2>Extra Menu</h2>
+      <Tambahan/>
     </>
   )
 }
