@@ -12,8 +12,12 @@ function ExtraMeal() {
         fetchData()
     }, [])
 
+
+    // const [searchNew, useSearchNew] = useState("")
+
     return (
         <>
+            <input type="text" />
             {
                 meals.map((meal, index) => {
                     return (
