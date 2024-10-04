@@ -3,7 +3,9 @@ import { createBrowserRouter } from 'react-router-dom'
 import Root from '../layouts/Root'
 import Home from '../pages/Home'
 import Tambahan from '../pages/Tambahan'
+import DetailMeal from '../pages/detail/_id'
 import About from '../pages/About'
+
 
 
 export const routers = createBrowserRouter([
@@ -18,6 +20,10 @@ export const routers = createBrowserRouter([
             {
                 path: '/extra',
                 element: <Tambahan/>
+            },
+            {
+                path: '/extra/:meal_id',
+                element: <DetailMeal/>
             },
             {
                 path: '/about',
