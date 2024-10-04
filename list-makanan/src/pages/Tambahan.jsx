@@ -1,21 +1,19 @@
-import { useEffect, useState } from 'react'
-
-import {Link} from 'react-router-dom'
+import {Link, useLoaderData} from 'react-router-dom'
 
 function Tambahan() {
-    const [meals,  setMeal] = useState([])
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=chicken')
-            const data = await res.json()
-            console.log(data)
-            setMeal(data.meals)
-        }
-        fetchData()
-    }, [])
+    // const [meals,  setMeal] = useState([])
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const res = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=chicken')
+    //         const data = await res.json()
+    //         console.log(data)
+    //         setMeal(data.meals)
+    //     }
+    //     fetchData()
+    // }, [])
 
 
-    // const [searchNew, useSearchNew] = useState("")
+    const meals = useLoaderData()
 
     return (
         <>

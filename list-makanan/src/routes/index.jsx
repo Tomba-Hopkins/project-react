@@ -6,6 +6,8 @@ import Tambahan from '../pages/Tambahan'
 import DetailMeal from '../pages/detail/_id'
 import About from '../pages/About'
 
+import { allmeal, mealById } from '../services/loaders'
+
 
 
 export const routers = createBrowserRouter([
@@ -19,11 +21,13 @@ export const routers = createBrowserRouter([
             },
             {
                 path: '/extra',
-                element: <Tambahan/>
+                element: <Tambahan/>,
+                loader: allmeal
             },
             {
                 path: '/extra/:meal_id',
-                element: <DetailMeal/>
+                element: <DetailMeal/>,
+                loader: mealById
             },
             {
                 path: '/about',
