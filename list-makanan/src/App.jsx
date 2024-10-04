@@ -5,6 +5,7 @@ import Tambahan from './components/Tambahan'
 
 import menus from './data/menu.json'
 import { useState } from 'react'
+import { GlobalContext } from './context'
 
 function App() {
 
@@ -17,9 +18,19 @@ function App() {
   }
 
 
+  const namaCucu = {
+    name: "State Management Kids😎",
+    age: 5,
+    message: "Hello grandpa"
+  }
+
+
   return (
     <>
-      <Search nyari={cari} />
+      <GlobalContext.Provider value={namaCucu}>
+         <Search nyari={cari} />
+      </GlobalContext.Provider>
+
       {
         menu.map((props, index) => <Content key={index} {...props} />)
       }
