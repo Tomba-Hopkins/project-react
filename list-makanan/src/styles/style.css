@@ -1,0 +1,8 @@
+.active {
+    color: skyblue;
+    font-weight: bolder;
+}
+
+.pending {
+    color: white;
+}

@@ -1,10 +1,16 @@
-import { Link, Outlet } from "react-router-dom"
+import { NavLink, Outlet } from "react-router-dom"
+
+import '../styles/style.css'
 
 function Root() {
 
     return (
         <>
-            <Link to="/">Home</Link> | <Link to="/extra">Extra</Link> | <Link to="/about">About</Link>
+            <NavLink className={({isActive, isPending}) => {
+                return isActive ? "active" : isPending ? "pending" : ""
+            }} to="/"> Home </NavLink> |
+            <NavLink to="/extra"> Extra </NavLink> |
+            <NavLink to="/about"> About </NavLink>
             <Outlet/>
         </>
     )
