@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function ExtraMeal() {
+function Tambahan() {
     const [meals,  setMeal] = useState([])
     useEffect(() => {
         const fetchData = async () => {
@@ -17,6 +17,7 @@ function ExtraMeal() {
 
     return (
         <>
+            <h2>Extra menu</h2>
             <input type="text" />
             {
                 meals.map((meal, index) => {
@@ -34,4 +35,4 @@ function ExtraMeal() {
     )
 }
 
-export default ExtraMeal
+export default Tambahan

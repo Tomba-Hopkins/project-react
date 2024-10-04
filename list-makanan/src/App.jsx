@@ -1,21 +1,10 @@
 import './App.css'
-import Search from './components/Search'
-import Content from './components/Content'
-import Tambahan from './components/Tambahan'
 
-import menus from './data/menu.json'
-import { useState } from 'react'
 import { GlobalContext } from './context'
+import { RouterProvider } from 'react-router-dom'
+import { routers } from './routes'
 
 function App() {
-
-  const [menu, setMenu] = useState(menus)
-
-  const cari = (val) => {
-    const filteredMenu = menus.filter((m) => m.name.includes(val))
-    setMenu(filteredMenu)
-
-  }
 
 
   const namaCucu = {
@@ -28,15 +17,10 @@ function App() {
   return (
     <>
       <GlobalContext.Provider value={namaCucu}>
-         <Search nyari={cari} />
+         <RouterProvider router={routers} />
       </GlobalContext.Provider>
 
-      {
-        menu.map((props, index) => <Content key={index} {...props} />)
-      }
-      <hr />
-      <h2>Extra Menu</h2>
-      <Tambahan/>
+      
     </>
   )
 }

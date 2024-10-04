@@ -6,7 +6,7 @@ function AnaknyaSearch() {
 
     return (
         <>
-            <small>Hallo aku adalah {data.name} <br />im {data.age} YO <br /> <em>{data.message}</em> </small>
+            <small>Hallo aku adalah {data.name} <br />im {data.age} YO <br /> <em>{data.message}</em></small>
         </>
     )
     
