@@ -10,3 +10,9 @@ export const mealById = async ({params}) => {
     const data = await res.json()
     return data.meals[0]
 }
+
+export const quotes = async() => {
+    const res = await fetch('https://dummyjson.com/quotes/random')
+    const data = await res.json()
+    return data
+}

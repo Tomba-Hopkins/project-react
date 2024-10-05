@@ -8,7 +8,7 @@ import About from '../pages/About'
 
 import NotFound from '../components/Notfound'
 
-import { allmeal, mealById } from '../services/loaders'
+import { allmeal, mealById, quotes } from '../services/loaders'
 
 
 
@@ -34,7 +34,8 @@ export const routers = createBrowserRouter([
             },
             {
                 path: '/about',
-                element: <About/>
+                element: <About/>,
+                loader: quotes
             }
         ]
 
