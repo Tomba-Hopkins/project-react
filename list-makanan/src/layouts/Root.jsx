@@ -5,7 +5,10 @@ import { useEffect, useState } from "react"
 
 function Root() {
 
-
+    const buka = 10
+    const tutup = 22
+    const jam = new Date().getHours()
+    const status = jam < buka || jam > tutup ? 'Tutup' : 'Buka'
 
     const [time, setTime] = useState(new Date().toLocaleTimeString())
 
@@ -25,6 +28,12 @@ function Root() {
             <NavLink to="/extra"> Extra </NavLink> |
             <NavLink to="/about"> About </NavLink>
             <span><small>{time}</small></span>
+            <br />
+            <small>
+                Buka: {buka} AM <br />
+                Tutup: {tutup} PM <br />
+                Status: <strong>{status}</strong>
+            </small>
             <Outlet/>
         </>
     )
