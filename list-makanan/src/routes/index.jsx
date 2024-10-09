@@ -5,7 +5,7 @@ import Home from '../pages/Home'
 import Tambahan from '../pages/Tambahan'
 import DetailMeal from '../pages/detail/_id'
 import About from '../pages/About'
-
+import CreateMenu from '../pages/CreateMenu'
 import NotFound from '../components/Notfound'
 
 import { allmeal, mealById, quotes } from '../services/loaders'
@@ -36,6 +36,10 @@ export const routers = createBrowserRouter([
                 path: '/about',
                 element: <About/>,
                 loader: quotes
+            },
+            {
+                path: '/create',
+                element: <CreateMenu/>
             }
         ]
 

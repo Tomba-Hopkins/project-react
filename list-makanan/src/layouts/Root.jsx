@@ -26,7 +26,8 @@ function Root() {
                 return isActive ? "active" : isPending ? "pending" : ""
             }} to="/"> Home </NavLink> |
             <NavLink to="/extra"> Extra </NavLink> |
-            <NavLink to="/about"> About </NavLink>
+            <NavLink to="/about"> About </NavLink> | 
+            <NavLink to="/create"> Create </NavLink>
             <span><small>{time}</small></span>
             <br />
             <small>
