@@ -29,12 +29,21 @@ function Todo() {
         setBoxTodo((before) => [...before, task])
     }
 
+
+    const removeTodo = (id) => {
+        // const newBoxTodo = boxTodo.filter((box) => box.id !== id)
+        // setBoxTodo(newBoxTodo)
+
+        // or
+        setBoxTodo(before => before.filter((item) => item.id !== id))
+    }
+
     return (
         <>
             <h1>Todo List</h1>
             <p>Wanna add some task sir🦖</p>
             <TodoForm nambahTodo={addTodo} />
-            <TodoList itemTodo={boxTodo}/>
+            <TodoList itemTodo={boxTodo} hapusTodo={removeTodo} />
         </>
     )
 }

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 function TodoList(props){
 
-    const { itemTodo } = props
+    const { itemTodo, hapusTodo } = props
     
     
     return (
@@ -24,6 +24,7 @@ function TodoList(props){
                         }}
                         >{item.title}</span>
                         <input type="checkbox" />
+                        <button onClick={() => hapusTodo(item.id)}>❌</button>
                     </div>
                 )
             })}
