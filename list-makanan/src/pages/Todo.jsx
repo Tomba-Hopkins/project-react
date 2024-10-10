@@ -64,12 +64,17 @@ function Todo() {
         }))
     }
 
+    const resetTodo = () => {
+        const confirm = window.confirm('Serius mo di apus semua? 🤖')
+        if(confirm) setBoxTodo([])
+    }
+
     return (
         <>
             <h1>Todo List</h1>
             <p>Wanna add some task sir🦖</p>
             <TodoForm nambahTodo={addTodo} />
-            <TodoList itemTodo={boxTodo} hapusTodo={removeTodo} centangTodo={doneTodo} />
+            <TodoList resetTodo={resetTodo} itemTodo={boxTodo} hapusTodo={removeTodo} centangTodo={doneTodo} />
             <TodoStats todo={boxTodo} />
         </>
     )

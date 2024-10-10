@@ -3,7 +3,7 @@ import { useState } from "react"
 /* eslint-disable react/prop-types */
 function TodoList(props){
 
-    const { itemTodo, hapusTodo, centangTodo } = props
+    const { itemTodo, hapusTodo, centangTodo, resetTodo } = props
 
     const [sortBy, setSortBy] = useState('input')
 
@@ -25,38 +25,47 @@ function TodoList(props){
     return (
         <>
 
-            <div className="list" style={{
+            <main style={{
                 display: 'flex',
-                flexWrap: 'wrap',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '100%',
-                gap: '2rem',
-                marginTop: '2rem'
+                flexDirection: 'column'
             }}>
+                <div className="set" style={{margin: '4rem 0'}}>
+                    <p style={{textAlign: 'center', width: '100%'}}>Sort by</p>
+                    <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} style={{textAlign: 'center', padding: '1rem'}}> 
+                        <option value="title">Title</option>
+                        <option value="status">Status</option>
+                        <option value="input">Input</option>
+                    </select>
+                    <button onClick={resetTodo}>Reset</button>
+                </div>
 
-            <p style={{textAlign: 'center', width: '100%'}}>Sort by</p>
-            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} style={{textAlign: 'center', width: '100%', padding: '1rem', marginBottom: '3rem'}}> 
-                <option value="title">Title</option>
-                <option value="status">Status</option>
-                <option value="input">Input</option>
-            </select>
+                <div className="list" style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    gap: '2rem',
+                    marginTop: '2rem'
+                }}>
 
-                {sortedItem.map((item) => {
-                    return (
-                        <div key={item.id}>
-                            <span
-                            style={{
-                                textDecoration: item.done ? 'line-through' : ''
-                            }}
-                            >{item.title}</span>
-                            <input onChange={() => centangTodo(item.id)} value={item.done} type="checkbox" />
-                            <button onClick={() => hapusTodo(item.id)}>❌</button>
-                        </div>
-                    )
-                })}
 
-            </div>
+                    {sortedItem.map((item) => {
+                        return (
+                            <div key={item.id}>
+                                <span
+                                style={{
+                                    textDecoration: item.done ? 'line-through' : ''
+                                }}
+                                >{item.title}</span>
+                                <input onChange={() => centangTodo(item.id)} value={item.done} type="checkbox" />
+                                <button onClick={() => hapusTodo(item.id)}>❌</button>
+                            </div>
+                        )
+                    })}
+
+                </div>
+            </main>
             
         
         </>
