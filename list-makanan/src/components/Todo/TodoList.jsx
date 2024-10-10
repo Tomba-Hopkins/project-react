@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 function TodoList(props){
 
-    const { itemTodo, hapusTodo } = props
+    const { itemTodo, hapusTodo, centangTodo } = props
     
     
     return (
@@ -23,7 +23,7 @@ function TodoList(props){
                             textDecoration: item.done ? 'line-through' : ''
                         }}
                         >{item.title}</span>
-                        <input type="checkbox" />
+                        <input onChange={() => centangTodo(item.id)} value={item.done} type="checkbox" />
                         <button onClick={() => hapusTodo(item.id)}>❌</button>
                     </div>
                 )

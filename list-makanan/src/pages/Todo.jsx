@@ -38,12 +38,37 @@ function Todo() {
         setBoxTodo(before => before.filter((item) => item.id !== id))
     }
 
+
+    const doneTodo = (id) => {
+        // const newBoxTodo = boxTodo.map((item) => {
+        //     if(item.id === id) {
+        //         return {
+        //             ...item,
+        //             done: !item.done
+        //         }
+        //     }
+        //     return item
+        // })
+        // setBoxTodo(newBoxTodo)
+
+        // or 
+        setBoxTodo((before) => before.map((item) => {
+            if(item.id === id) {
+                return {
+                    ...item,
+                    done: !item.done
+                }
+            }
+            return item
+        }))
+    }
+
     return (
         <>
             <h1>Todo List</h1>
             <p>Wanna add some task sir🦖</p>
             <TodoForm nambahTodo={addTodo} />
-            <TodoList itemTodo={boxTodo} hapusTodo={removeTodo} />
+            <TodoList itemTodo={boxTodo} hapusTodo={removeTodo} centangTodo={doneTodo} />
         </>
     )
 }
