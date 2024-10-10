@@ -2,17 +2,18 @@ import { useState } from "react"
 
 import TodoForm from "../components/Todo/TodoForm"
 import TodoList from "../components/Todo/TodoList"
+import TodoStats from "../components/Todo/TodoStats"
 
 const datas = [
     {
         id: 1,
         title: 'HOHO',
-        done: true
+        done: false
     },
     {
         id: 2,
         title: 'Hehe',
-        done: true
+        done: false
     },
 ]
 
@@ -69,6 +70,7 @@ function Todo() {
             <p>Wanna add some task sir🦖</p>
             <TodoForm nambahTodo={addTodo} />
             <TodoList itemTodo={boxTodo} hapusTodo={removeTodo} centangTodo={doneTodo} />
+            <TodoStats todo={boxTodo} />
         </>
     )
 }
