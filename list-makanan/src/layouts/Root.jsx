@@ -29,6 +29,7 @@ function Root() {
             <NavLink to="/about"> About </NavLink> | 
             <NavLink to="/create"> Create </NavLink> |
             <NavLink to="/todo"> Todo </NavLink> |
+            <NavLink to="/bill"> Bill </NavLink> |
             <span><small>{time}</small></span>
             <br />
             <small>

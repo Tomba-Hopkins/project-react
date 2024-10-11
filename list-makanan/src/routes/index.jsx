@@ -7,6 +7,7 @@ import DetailMeal from '../pages/detail/_id'
 import About from '../pages/About'
 import CreateMenu from '../pages/CreateMenu'
 import Todo from '../pages/Todo'
+import SplitBill from '../pages/SplitBill'
 
 import NotFound from '../components/Notfound'
 
@@ -46,6 +47,10 @@ export const routers = createBrowserRouter([
             {
                 path: '/todo',
                 element: <Todo/>
+            },
+            {
+                path: '/bill',
+                element: <SplitBill/>
             }
         ]
 
