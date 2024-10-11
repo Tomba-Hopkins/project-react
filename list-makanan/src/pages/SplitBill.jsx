@@ -1,4 +1,17 @@
+// import BillForm from "../components/SplitBill/BillForm"
+import { useState } from "react"
+import BillUser from "../components/SplitBill/BillUser"
+import BillAddUser from "../components/SplitBill/BillAddUser"
+
 function SplitBill(){
+
+    const [addBtn, setAddBtn] = useState(false)
+
+    const addBtnHandler = () => {
+        setAddBtn(!addBtn)
+    }
+    
+    
     return (
         <>
             <header style={{
@@ -21,8 +34,16 @@ function SplitBill(){
                 padding: '0.7rem',
                 borderLeft: '1px solid #646cff',
             }}>
+                <BillUser/>
+
+                <button onClick={addBtnHandler} style={{
+                    width: '40%'
+                }}>Add User</button>
+               
 
             </main>
+
+            {addBtn && <BillAddUser btnClose={addBtnHandler} />}
         </>
     )
 }
