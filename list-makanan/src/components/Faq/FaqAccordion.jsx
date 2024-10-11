@@ -20,7 +20,8 @@ export default function FaqAccordion(props){
                 marginBottom: '2rem',
                 gap: '2rem',
                 borderRight: `${isOpen ? '1px solid #646cff' : ''}`,
-                borderBottom: `${isOpen ? '1px solid #646cff' : ''}`
+                borderBottom: `${isOpen ? '1px solid #646cff' : ''}`,
+                cursor: 'pointer'
             }}>
                 <p>{no < 10 ? `0${no}` : no}</p>
                 <p>{que}</p>
