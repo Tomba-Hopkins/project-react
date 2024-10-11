@@ -6,11 +6,21 @@ import BillAddUser from "../components/SplitBill/BillAddUser"
 function SplitBill(){
 
     const [addBtn, setAddBtn] = useState(false)
+    const [listFriend, setListFriend] = useState([])
 
     const addBtnHandler = () => {
         setAddBtn(!addBtn)
     }
+
+    const addListFriend = (friend) => {
+
+        // const newFriend = [...listFriend, friend]
+        // setListFriend(newFriend)
+        
+        setListFriend((before) => [...before, friend])
+    }
     
+    console.log(listFriend)
     
     return (
         <>
@@ -34,7 +44,7 @@ function SplitBill(){
                 padding: '0.7rem',
                 borderLeft: '1px solid #646cff',
             }}>
-                <BillUser/>
+                <BillUser list={listFriend} />
 
                 <button onClick={addBtnHandler} style={{
                     width: '40%'
@@ -43,7 +53,7 @@ function SplitBill(){
 
             </main>
 
-            {addBtn && <BillAddUser btnClose={addBtnHandler} />}
+            {addBtn && <BillAddUser addFriend={addListFriend} btnClose={addBtnHandler} />}
         </>
     )
 }

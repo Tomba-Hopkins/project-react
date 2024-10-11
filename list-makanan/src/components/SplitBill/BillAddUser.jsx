@@ -1,7 +1,27 @@
+import { useState } from "react"
+
 /* eslint-disable react/prop-types */
 function BillAddUser(props){
 
-    const {btnClose} = props
+    const {btnClose,addFriend} = props
+    const [newName, setNewName] = useState('')
+    const [newImage, setNewImage] = useState('')
+
+    const formHandle = (e) => {
+
+        e.preventDefault()
+        
+        const newFriend = {
+            id: new Date().getTime(),
+            name: newName,
+            img: newImage
+        }
+
+        addFriend(newFriend)
+        setNewImage('')
+        setNewName('')
+        btnClose()
+    }
 
     return (
         <div className="form-add"
@@ -18,7 +38,7 @@ function BillAddUser(props){
                 backdropFilter: 'blur(10px)'
             }}
         >
-            <form style={{
+            <form onSubmit={formHandle} style={{
                 width: '50%',
                 height: '50%',
                 borderRadius: '0.7rem',
@@ -32,8 +52,8 @@ function BillAddUser(props){
                 gap: '2rem'
             }}>
                 <p style={{cursor: 'pointer', marginLeft: '10rem'}} onClick={btnClose}>❌</p>
-                <input type="text" placeholder="link gambar" required />
-                <input type="text" placeholder="Nama..." required />
+                <input onChange={(e) => setNewImage(e.target.value)} value={newImage} type="text" placeholder="link gambar" required />
+                <input onChange={(e) => setNewName(e.target.value)} value={newName} type="text" placeholder="Nama..." required />
                 <button>Submit</button>
             </form>
         </div>
