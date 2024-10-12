@@ -15,7 +15,8 @@ function BillForm(props){
 
     const balanceCalculation = (balanceBefore) => {
         console.log(ygBayar,user.name)
-        return ygBayar === user.name ? balanceBefore += (total - urCost) : balanceBefore -= urCost
+        console.log(ygBayar === user.name)
+        return ygBayar === user.name ? balanceBefore -= urCost : balanceBefore += (total - urCost)
     }
 
     const formHandler = (e) => {
