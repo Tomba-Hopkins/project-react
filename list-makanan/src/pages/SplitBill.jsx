@@ -2,14 +2,20 @@
 import { useState } from "react"
 import BillUser from "../components/SplitBill/BillUser"
 import BillAddUser from "../components/SplitBill/BillAddUser"
+import BillForm from "../components/SplitBill/BillForm"
 
 function SplitBill(){
 
     const [addBtn, setAddBtn] = useState(false)
     const [listFriend, setListFriend] = useState([])
+    const [jajanBtn, setJajanBtn] = useState(false)
 
     const addBtnHandler = () => {
         setAddBtn(!addBtn)
+    }
+
+    const jajanBtnHandler = () => {
+        setJajanBtn(!jajanBtn)
     }
 
     const addListFriend = (friend) => {
@@ -19,10 +25,6 @@ function SplitBill(){
         
         setListFriend((before) => [...before, friend])
     }
-
-    
-    
-    console.log(listFriend)
     
     return (
         <>
@@ -46,16 +48,18 @@ function SplitBill(){
                 padding: '0.7rem',
                 borderLeft: '1px solid #646cff',
             }}>
-                <BillUser list={listFriend} />
+                <BillUser onJajanBtn={jajanBtnHandler} list={listFriend} />
 
                 <button onClick={addBtnHandler} style={{
-                    width: '40%'
+                    width: '40%',
                 }}>Add User</button>
                
 
             </main>
-
+            
             {addBtn && <BillAddUser addFriend={addListFriend} btnClose={addBtnHandler} />}
+            {jajanBtn && <BillForm btnClose={jajanBtnHandler} />}
+
         </>
     )
 }

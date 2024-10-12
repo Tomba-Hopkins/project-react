@@ -28,7 +28,7 @@ function BillAddUser(props){
         <div className="form-add"
             style={{
                 width: '100%',
-                position: 'absolute',
+                position: 'fixed',
                 top: '0',
                 right: '0',
                 height: '100vh',
