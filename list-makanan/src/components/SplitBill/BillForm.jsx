@@ -6,14 +6,15 @@ function BillForm(props){
     const {btnClose, jajanUserId, listFriend, setListFriend} = props
     // console.log(jajanUserId)
 
-    const [total,setTotal] = useState(0)
-    const [urCost, setUrCost] = useState(0)
+    const [total,setTotal] = useState()
+    const [urCost, setUrCost] = useState()
     const [ygBayar, setYgBayar] = useState('')
 
     const user = listFriend.filter((friend) => friend.id === jajanUserId)[0]
     console.log(user, user.balance)
 
     const balanceCalculation = (balanceBefore) => {
+        console.log(ygBayar,user.name)
         return ygBayar === user.name ? balanceBefore += (total - urCost) : balanceBefore -= urCost
     }
 
@@ -29,6 +30,7 @@ function BillForm(props){
             }
             return friend
         }))
+        btnClose()
     }
 
     
@@ -64,25 +66,26 @@ function BillForm(props){
                 <p style={{cursor: 'pointer', marginLeft: '15rem'}} onClick={btnClose}>❌</p>
                 <div style={{display: 'flex', gap: '2rem'}} className="input">
                     <label htmlFor="total">Total Pengeluaran</label>
-                    <input id="total" value={total} type="number" onChange={(e) => setTotal(e.target.value)} />
+                    <input placeholder="total biaya..." required id="total" value={total} type="number" onChange={(e) => setTotal(e.target.value)} />
                 </div>
 
                 <div style={{display: 'flex', gap: '2rem'}} className="input">
                     <label htmlFor="ur-cost">Pengeluaran mu</label>
-                    <input id="ur-cost" value={urCost} type="number" onChange={(e) => setUrCost(e.target.value)} />
+                    <input placeholder="jajan mu berapa..." required id="ur-cost" value={urCost} type="number" onChange={(e) => setUrCost(e.target.value)} />
                 </div>
 
 
 
                 <div style={{display: 'flex', gap: '2rem'}} className="input">
                     <label htmlFor="">Pengeluaran name</label>
-                    <input type="number" readOnly disabled />
+                    <input type="number" readOnly disabled placeholder={total && urCost ? total - urCost : ''} />
                 </div>
 
 
                 <div style={{display: 'flex', gap: '2rem'}} className="input">
                     <label htmlFor="">Ditolong oleh</label>
-                    <select value={ygBayar} onChange={(e) => setYgBayar(e.target.value)}>
+                    <select value={ygBayar} onChange={(e) => setYgBayar(e.target.value)} required>
+                        <option value="" disabled hidden>Pilih</option>
                         <option value="kamu">kamu</option>
                         <option value={user.name}>{user.name}</option>
                     </select>
