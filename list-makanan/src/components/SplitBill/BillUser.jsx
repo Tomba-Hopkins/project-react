@@ -22,7 +22,9 @@ function BillUser(props){
                             borderRadius: '50%'
                         }} src={l.img} alt={l.name} />
                         <h3>{l.name}</h3>
-                        <p>Info </p>
+
+
+                        <p>{l.balance > 0 ? `kamu punya utang dengan ${l.name} sebesar ${l.balance}` : l.balance < 0 ? `${l.name} punya utang padamu sebesar ${l.balance}` : `${l.name} dan kamu sama2 gada utang y mari berhutang☕`} </p>
                         <button>Detail</button>
                     </div>
                 )

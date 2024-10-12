@@ -14,7 +14,8 @@ function BillAddUser(props){
         const newFriend = {
             id: new Date().getTime(),
             name: newName,
-            img: newImage
+            img: newImage,
+            balance: 0
         }
 
         addFriend(newFriend)
