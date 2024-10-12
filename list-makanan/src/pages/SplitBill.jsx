@@ -19,6 +19,8 @@ function SplitBill(){
         
         setListFriend((before) => [...before, friend])
     }
+
+    
     
     console.log(listFriend)
     
