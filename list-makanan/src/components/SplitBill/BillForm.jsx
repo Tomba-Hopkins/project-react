@@ -1,7 +1,36 @@
+import { useState } from "react"
+
 /* eslint-disable react/prop-types */
 function BillForm(props){
 
-    const {btnClose} = props
+    const {btnClose, jajanUserId, listFriend, setListFriend} = props
+    // console.log(jajanUserId)
+
+    const [total,setTotal] = useState(0)
+    const [urCost, setUrCost] = useState(0)
+    const [ygBayar, setYgBayar] = useState('')
+
+    const user = listFriend.filter((friend) => friend.id === jajanUserId)[0]
+    console.log(user, user.balance)
+
+    const balanceCalculation = (balanceBefore) => {
+        return ygBayar === user.name ? balanceBefore += (total - urCost) : balanceBefore -= urCost
+    }
+
+    const formHandler = (e) => {
+        e.preventDefault()
+        
+        setListFriend((before) => before.map((friend) => {
+            if(friend.id === jajanUserId) {
+                return {
+                    ...friend,
+                    balance: balanceCalculation(friend.balance)
+                }
+            }
+            return friend
+        }))
+    }
+
     
     
     return (
@@ -18,11 +47,10 @@ function BillForm(props){
                 backdropFilter: 'blur(10px)',
                 flexDirection: 'column',
         }}>
-            <h2>Patungan Bareng</h2>
-            <p onClick={btnClose}>❌</p>
-            <form style={{
-                width: '80%',
-                height: '80%',
+            <h2>Patungan Bareng {user.name} </h2>
+            <form onSubmit={formHandler} style={{
+                width: '70%',
+                height: '70%',
                 borderRadius: '0.7rem',
                 backgroundColor: '#272727',
                 border: '1px solid #646cff',
@@ -33,21 +61,32 @@ function BillForm(props){
                 alignItems: 'center',
                 gap: '1rem',
             }}>
-                <label htmlFor="">Total Pengeluaran</label>
-                <input type="text" />
+                <p style={{cursor: 'pointer', marginLeft: '15rem'}} onClick={btnClose}>❌</p>
+                <div style={{display: 'flex', gap: '2rem'}} className="input">
+                    <label htmlFor="total">Total Pengeluaran</label>
+                    <input id="total" value={total} type="number" onChange={(e) => setTotal(e.target.value)} />
+                </div>
+
+                <div style={{display: 'flex', gap: '2rem'}} className="input">
+                    <label htmlFor="ur-cost">Pengeluaran mu</label>
+                    <input id="ur-cost" value={urCost} type="number" onChange={(e) => setUrCost(e.target.value)} />
+                </div>
 
 
-                <label htmlFor="">Pengeluaran mu</label>
-                <input type="text" />
 
-                <label htmlFor="">Pengeluaran name</label>
-                <input type="text" />
+                <div style={{display: 'flex', gap: '2rem'}} className="input">
+                    <label htmlFor="">Pengeluaran name</label>
+                    <input type="number" readOnly disabled />
+                </div>
 
 
-                <label htmlFor="">Ditolong oleh</label>
-                <select>
-                    <option value="kamu">kamu</option>
-                </select>
+                <div style={{display: 'flex', gap: '2rem'}} className="input">
+                    <label htmlFor="">Ditolong oleh</label>
+                    <select value={ygBayar} onChange={(e) => setYgBayar(e.target.value)}>
+                        <option value="kamu">kamu</option>
+                        <option value={user.name}>{user.name}</option>
+                    </select>
+                </div>
 
                 <button>Submit</button>
 

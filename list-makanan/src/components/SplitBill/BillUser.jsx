@@ -25,7 +25,7 @@ function BillUser(props){
 
 
                         <p>{l.balance > 0 ? `kamu punya utang dengan ${l.name} sebesar ${l.balance}` : l.balance < 0 ? `${l.name} punya utang padamu sebesar ${l.balance}` : `${l.name} dan kamu sama2 gada utang y mari berhutang☕`} </p>
-                        <button onClick={onJajanBtn}>Jajan</button>
+                        <button onClick={() => onJajanBtn(l.id)}>Jajan</button>
                     </div>
                 )
             })}

@@ -9,13 +9,15 @@ function SplitBill(){
     const [addBtn, setAddBtn] = useState(false)
     const [listFriend, setListFriend] = useState([])
     const [jajanBtn, setJajanBtn] = useState(false)
+    const [jajanUserId, setJajanUserId] = useState(null)
 
     const addBtnHandler = () => {
         setAddBtn(!addBtn)
     }
 
-    const jajanBtnHandler = () => {
+    const jajanBtnHandler = (id) => {
         setJajanBtn(!jajanBtn)
+        setJajanUserId(jajanUserId === null ? id : null)
     }
 
     const addListFriend = (friend) => {
@@ -58,7 +60,7 @@ function SplitBill(){
             </main>
             
             {addBtn && <BillAddUser addFriend={addListFriend} btnClose={addBtnHandler} />}
-            {jajanBtn && <BillForm btnClose={jajanBtnHandler} />}
+            {jajanBtn && <BillForm setListFriend={setListFriend} listFriend={listFriend} jajanUserId={jajanUserId} btnClose={jajanBtnHandler} />}
 
         </>
     )
