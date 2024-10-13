@@ -26,7 +26,7 @@ function BillUser(props){
 
                         <p style={{
                             color: `${l.balance > 0 ? 'lime' : l.balance < 0 ? 'red' : ''}`
-                        }}>{l.balance > 0 ? `${l.name} punya utang dengan mu sebesar ${l.balance}` : l.balance < 0 ? `kamu punya utang pada ${l.name} sebesar ${-l.balance}` : `${l.name} dan kamu sama2 gada utang y mari berhutang☕`} </p>
+                        }}>{l.balance > 0 ? `${l.name} punya utang dengan mu sebesar Rp.${l.balance}` : l.balance < 0 ? `kamu punya utang pada ${l.name} sebesar Rp.${-l.balance}` : `${l.name} dan kamu sama2 gada utang y mari berhutang☕`} </p>
                         <button onClick={() => onJajanBtn(l.id)}>Jajan</button>
                     </div>
                 )
