@@ -5,7 +5,7 @@ function BillAddUser(props){
 
     const {btnClose,addFriend} = props
     const [newName, setNewName] = useState('')
-    const [newImage, setNewImage] = useState('')
+    const [newImage, setNewImage] = useState('https://tomba-hopkins.github.io/Warung-Sidi/img/products/1.jpg')
 
     const formHandle = (e) => {
 
@@ -53,8 +53,8 @@ function BillAddUser(props){
                 gap: '2rem'
             }}>
                 <p style={{cursor: 'pointer', marginLeft: '10rem'}} onClick={btnClose}>❌</p>
-                <input onChange={(e) => setNewImage(e.target.value)} value={newImage} type="text" placeholder="link gambar" required />
                 <input onChange={(e) => setNewName(e.target.value)} value={newName} type="text" placeholder="Nama..." required />
+                <input onChange={(e) => setNewImage(e.target.value)} value={newImage} type="text" placeholder="link gambar" required />
                 <button>Submit</button>
             </form>
         </div>
