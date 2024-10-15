@@ -14,34 +14,6 @@ const faqs = [
         question: 'Seberapa lama Mie Goreng ini dibuat',
         answer: '😂'
     },
-    {
-        question: 'Seberapa lama Mie Goreng ini dibuat',
-        answer: '😂'
-    },
-    {
-        question: 'Seberapa lama Mie Goreng ini dibuat',
-        answer: '😂'
-    },
-    {
-        question: 'Seberapa lama Mie Goreng ini dibuat',
-        answer: '😂'
-    },
-    {
-        question: 'Seberapa lama Mie Goreng ini dibuat',
-        answer: '😂'
-    },
-    {
-        question: 'Seberapa lama Mie Goreng ini dibuat',
-        answer: '😂'
-    },
-    {
-        question: 'Seberapa lama Mie Goreng ini dibuat',
-        answer: '😂'
-    },
-    {
-        question: 'Seberapa lama Mie Goreng ini dibuat',
-        answer: '😂'
-    },
 ]
 
 function Faq(){
