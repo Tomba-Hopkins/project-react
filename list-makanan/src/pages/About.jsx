@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom"
 import Faq from "../components/Faq/Faq"
+import Star from "../components/Star"
 
 function About(){
 
@@ -15,6 +16,7 @@ function About(){
             <p>&quot;{quotes.quote}&quot;</p>
             <p>~ <em>{quotes.author}</em></p>
             <Faq/>
+            <Star/>
         </>
     )
 }
