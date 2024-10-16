@@ -35,7 +35,10 @@ export default function VisiTab({isi}){
 
                 {
                     // at itu buat nentuin sesuai index keknya
-                    tabAct <= 2 ? <VisiContent item={isi.at(tabAct)} /> : <VisiTrap/> 
+                    tabAct <= 2 ? <VisiContent item={isi.at(tabAct)} /> : <VisiTrap isi={isi}/> 
+
+                    // kalau dikasih key state likes nya gabakal kesimpen pas pindah
+                    // tabAct <= 2 ? <VisiContent key={isi.at(tabAct).id} item={isi.at(tabAct)} /> : <VisiTrap isi={isi}/> 
                 }
             </main>
         
