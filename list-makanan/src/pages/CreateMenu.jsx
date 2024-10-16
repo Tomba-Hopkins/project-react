@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import VisiMisi from "../components/VisiMisi/VisiMisi"
+
 function CreateMenu(){
 
     const [menu, setMenu] = useState('')
@@ -78,6 +80,12 @@ function CreateMenu(){
                     )
                 })}
             </ul>
+
+
+
+
+
+                <VisiMisi/>
 
         </>
     )

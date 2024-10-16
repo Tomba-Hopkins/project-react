@@ -1,0 +1,10 @@
+.tab-act {
+    background-color: #646cff;
+    color: aliceblue;
+}
+
+.tab-not-act {
+    background-color: #1a1a1a;
+    color: #646cff;
+    border: 1px solid #646cff;
+}
