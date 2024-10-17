@@ -10,6 +10,12 @@ export default function VisiContent({item}){
     const memberiLaiks = () => {
         setLikes(likes + 1)
     }
+
+    const memberi3Laiks = () => {
+        setLikes((l) => l + 1)
+        setLikes((l) => l + 1)
+        setLikes((l) => l + 1)
+    }
     
     
     
@@ -21,7 +27,12 @@ export default function VisiContent({item}){
             <button onClick={memberiLaiks} style={{
                 marginLeft: '3rem',
                 cursor: 'pointer'
-            }}>👍 {likes} Likes</button>
+            }}>👍</button>
+            <button onClick={memberi3Laiks} style={{
+                marginRight: '1rem',
+                cursor: 'pointer'
+            }}>👍👍👍</button>
+            <span>{likes} Likes</span>
         </section>
     )
 }
