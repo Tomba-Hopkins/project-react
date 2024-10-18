@@ -22,21 +22,26 @@ function Root() {
 
     return (
         <>
-            <NavLink className={({isActive, isPending}) => {
-                return isActive ? "active" : isPending ? "pending" : ""
-            }} to="/"> Home </NavLink> |
-            <NavLink to="/extra"> Extra </NavLink> |
-            <NavLink to="/about"> About </NavLink> | 
-            <NavLink to="/create"> Create </NavLink> |
-            <NavLink to="/todo"> Todo </NavLink> |
-            <NavLink to="/bill"> Bill </NavLink> |
-            <span><small>{time}</small></span>
-            <br />
-            <small>
-                Buka: {buka} AM <br />
-                Tutup: {tutup} PM <br />
-                Status: <strong>{status}</strong>
-            </small>
+            <nav style={{
+                marginTop: '2rem'
+            }}>
+                <NavLink className={({isActive, isPending}) => {
+                    return isActive ? "active" : isPending ? "pending" : ""
+                }} to="/"> Home </NavLink> |
+                <NavLink to="/extra"> Extra </NavLink> |
+                <NavLink to="/about"> About </NavLink> | 
+                <NavLink to="/create"> Create </NavLink> |
+                <NavLink to="/todo"> Todo </NavLink> |
+                <NavLink to="/bill"> Bill </NavLink> |
+                <NavLink to="/film"> Film </NavLink> 
+                <span><small>{time}</small></span>
+                <br />
+                <small>
+                    Buka: {buka} AM <br />
+                    Tutup: {tutup} PM <br />
+                    Status: <strong>{status}</strong>
+                </small>
+                </nav>
             <Outlet/>
         </>
     )

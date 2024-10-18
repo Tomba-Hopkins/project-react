@@ -26,7 +26,7 @@ function Star(){
                 padding: '0.4rem'
             }} className="box-star">
                 {Array.from({length: 5}, (_, i) => (
-                    <Svg terisi={ tempRate ? tempRate >= i + 1 : clickRate >= i + 1} key={i} rateClick={() => handleClick(i + 1)} inn={() => setTempRate(i + 1)}  out={() => setTempRate(0)}/>
+                    <Svg terisi={ tempRate ? tempRate >= i + 1 : clickRate >= i + 1} key={i} rateClick={() => handleClick(i + 1)} inn={() => setTempRate(i + 1)}  out={() => setTempRate(i - 1)}/>
                 ))}
             </div>
             <p>{tempRate || clickRate || ''} stars</p>

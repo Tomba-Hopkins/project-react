@@ -8,6 +8,7 @@ import About from '../pages/About'
 import CreateMenu from '../pages/CreateMenu'
 import Todo from '../pages/Todo'
 import SplitBill from '../pages/SplitBill'
+import Film from '../pages/Film'
 
 import NotFound from '../components/Notfound'
 
@@ -51,7 +52,11 @@ export const routers = createBrowserRouter([
             {
                 path: '/bill',
                 element: <SplitBill/>
-            }
+            },
+            {
+                path: '/film',
+                element: <Film/>
+            },
         ]
 
     }
