@@ -4,15 +4,21 @@ import FilmSide from "../components/Film/FilmSide"
 import FilmList from "../components/Film/FilmList"
 import FilmCollection from "../components/Film/FilmCollection"
 import { useEffect, useState } from "react"
+import FilmDetail from "../components/Film/FilmDetail"
 
 function Film(){
     const film_api = import.meta.env.VITE_FILM_API_KEY
 
 
-
-
     const [listFilm, setListFilm] = useState([])
     const [keyword, setKeyword] = useState('barbie')
+    const [pilihIdFilm, setPilihIdFilm] = useState('')
+    const [detailActive, setDetailActive]= useState(false)
+
+
+    const filmTerpilih = listFilm.filter((film) => film.imdbID === pilihIdFilm)[0]
+
+
 
     useEffect(() => {
 
@@ -27,6 +33,11 @@ function Film(){
         
     }, [film_api, keyword])
 
+
+    const handleDetailActive = () => {
+        setDetailActive(!detailActive)
+    }
+
     return (
         <>
             <FilmHead setKeyword={setKeyword} api={film_api}/>
@@ -39,11 +50,11 @@ function Film(){
                 margin: '3rem auto'
             }}>
                 <FilmSide>
-                    <FilmList listFilm={listFilm} />
+                    <FilmList setPilihIdFilm={setPilihIdFilm} handleDetailActive={handleDetailActive} listFilm={listFilm} />
                 </FilmSide>
 
                 <FilmSide>
-                    <FilmCollection/>
+                    {detailActive ? <FilmDetail filmTerpilih={filmTerpilih} handleDetailActive={handleDetailActive}/> : <FilmCollection/>}
                 </FilmSide>
             </main>
         </>

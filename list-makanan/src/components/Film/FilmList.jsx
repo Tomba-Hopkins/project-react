@@ -2,12 +2,17 @@
 
 import './film.css'
 
-export default function FilmList({listFilm}){
-    console.log(listFilm)
+export default function FilmList({listFilm, setPilihIdFilm, handleDetailActive}){
+    
+    const handleClickBox = (id) => {
+        setPilihIdFilm(id)
+        handleDetailActive()
+    }
+    
     return (
         <>
             {listFilm.map((film) => {
-            return <div className="box"
+            return <div onClick={() => handleClickBox(film.imdbID)} className="box"
             key={film.imdbID}>
 
                     <h3>{film.Title}</h3>
