@@ -16,9 +16,6 @@ function Film(){
     const [detailActive, setDetailActive]= useState(false)
 
 
-    const filmTerpilih = listFilm.filter((film) => film.imdbID === pilihIdFilm)[0]
-
-
 
     useEffect(() => {
 
@@ -54,7 +51,7 @@ function Film(){
                 </FilmSide>
 
                 <FilmSide>
-                    {detailActive ? <FilmDetail filmTerpilih={filmTerpilih} handleDetailActive={handleDetailActive}/> : <FilmCollection/>}
+                    {detailActive ? <FilmDetail film_api={film_api} pilihIdFilm={pilihIdFilm} handleDetailActive={handleDetailActive}/> : <FilmCollection/>}
                 </FilmSide>
             </main>
         </>
