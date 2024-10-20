@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Loading from '../Loading'
+import Star from "../Star"
 
 /* eslint-disable react/prop-types */
 export default function FilmDetail({handleDetailActive, pilihIdFilm, film_api}){
@@ -7,6 +8,7 @@ export default function FilmDetail({handleDetailActive, pilihIdFilm, film_api}){
     const [filmDetail, setFilmDetail] = useState()
     const [isLoading, setIsLoading] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
+    const [clickRate, setClickRate] = useState(0)
     
 
     useEffect(() => {
@@ -72,6 +74,7 @@ export default function FilmDetail({handleDetailActive, pilihIdFilm, film_api}){
             <em>{plot}</em>
             </small>
             <br />
+            <Star setClickRate={setClickRate} clickRate={clickRate} />
             <button>Dah nonton</button>
         </>
     )
