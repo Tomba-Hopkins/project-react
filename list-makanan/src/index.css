@@ -27,6 +27,7 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -82,5 +83,25 @@ input:focus {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+
+
+
+.loading {
+  height: 5rem;
+  width: 5rem;
+  margin-bottom: 2rem;
+  border-radius: 50%;
+  border-top: 1px solid #646cff;
+  border-right: 1px solid #646cff;
+  animation: muter 0.2s linear infinite;
+}
+
+
+@keyframes muter {
+  to {
+    transform: rotate(360deg);
   }
 }
