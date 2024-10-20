@@ -71,6 +71,8 @@ export default function FilmDetail({handleDetailActive, pilihIdFilm, film_api}){
             <small>
             <em>{plot}</em>
             </small>
+            <br />
+            <button>Dah nonton</button>
         </>
     )
 }

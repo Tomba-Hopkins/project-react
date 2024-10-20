@@ -5,7 +5,10 @@ export default function FilmSide({children}){
             overflowY: 'auto',
             width: '50%',
             padding: '1rem',
-            maxHeight: '20rem'
+            maxHeight: '20rem',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
         }}>
             {children}
         </section>
