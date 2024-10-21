@@ -14,6 +14,7 @@ function Film(){
     const [keyword, setKeyword] = useState('barbie')
     const [pilihIdFilm, setPilihIdFilm] = useState('')
     const [detailActive, setDetailActive]= useState(false)
+    const [starRating, setStarRating] = useState(0)
 
 
 
@@ -51,7 +52,7 @@ function Film(){
                 </FilmSide>
 
                 <FilmSide>
-                    {detailActive ? <FilmDetail film_api={film_api} pilihIdFilm={pilihIdFilm} handleDetailActive={handleDetailActive}/> : <FilmCollection/>}
+                    {detailActive ? <FilmDetail setStarRating={setStarRating} film_api={film_api} pilihIdFilm={pilihIdFilm} handleDetailActive={handleDetailActive}/> : <FilmCollection starRating={starRating}/>}
                 </FilmSide>
             </main>
         </>

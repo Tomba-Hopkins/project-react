@@ -8,7 +8,7 @@ export default function FilmDetail({handleDetailActive, pilihIdFilm, film_api}){
     const [filmDetail, setFilmDetail] = useState()
     const [isLoading, setIsLoading] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
-    const [clickRate, setClickRate] = useState(0)
+    
     
 
     useEffect(() => {
@@ -74,7 +74,7 @@ export default function FilmDetail({handleDetailActive, pilihIdFilm, film_api}){
             <em>{plot}</em>
             </small>
             <br />
-            <Star setClickRate={setClickRate} clickRate={clickRate} />
+            <Star />
             <button>Dah nonton</button>
         </>
     )
