@@ -3,7 +3,7 @@
 import { useState } from "react"
 
 
-function Star(){
+function Star({setStarRating}){
 
     
     const [clickRate, setClickRate] = useState(0)
@@ -11,6 +11,7 @@ function Star(){
 
     const handleClick = (point) => {
         setClickRate(point)
+        setStarRating(point)
     }
     
     

@@ -15,6 +15,7 @@ function Film(){
     const [pilihIdFilm, setPilihIdFilm] = useState('')
     const [detailActive, setDetailActive]= useState(false)
     const [starRating, setStarRating] = useState(0)
+    const [koleksiFilm, setKoleksiFilm] = useState([])
 
 
 
@@ -36,6 +37,10 @@ function Film(){
         setDetailActive(!detailActive)
     }
 
+    const handleKoleksiFilm = (film) => {
+        setKoleksiFilm((before) => [...before, film])
+    }
+
     return (
         <>
             <FilmHead setKeyword={setKeyword} api={film_api}/>
@@ -52,7 +57,7 @@ function Film(){
                 </FilmSide>
 
                 <FilmSide>
-                    {detailActive ? <FilmDetail setStarRating={setStarRating} film_api={film_api} pilihIdFilm={pilihIdFilm} handleDetailActive={handleDetailActive}/> : <FilmCollection starRating={starRating}/>}
+                    {detailActive ? <FilmDetail starRating={starRating} handleKoleksiFilm={handleKoleksiFilm} setStarRating={setStarRating} film_api={film_api} pilihIdFilm={pilihIdFilm} handleDetailActive={handleDetailActive}/> : <FilmCollection koleksiFilm={koleksiFilm} />}
                 </FilmSide>
             </main>
         </>

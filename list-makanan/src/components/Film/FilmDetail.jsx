@@ -3,7 +3,7 @@ import Loading from '../Loading'
 import Star from "../Star"
 
 /* eslint-disable react/prop-types */
-export default function FilmDetail({handleDetailActive, pilihIdFilm, film_api}){
+export default function FilmDetail({handleDetailActive, pilihIdFilm, film_api, setStarRating, handleKoleksiFilm, starRating}){
 
     const [filmDetail, setFilmDetail] = useState()
     const [isLoading, setIsLoading] = useState(false)
@@ -52,8 +52,20 @@ export default function FilmDetail({handleDetailActive, pilihIdFilm, film_api}){
         Plot: plot,
         Released: rilis,
         Runtime: durasi,
-        Director: sutradara
+        Director: sutradara,
     } = filmDetail
+
+
+    const handleAddFilm = () => {
+
+        const newDetail = {
+            ...filmDetail,
+            Rating: starRating
+        }
+        
+        handleKoleksiFilm(newDetail)
+        handleDetailActive()
+    }
     
 
 
@@ -74,8 +86,8 @@ export default function FilmDetail({handleDetailActive, pilihIdFilm, film_api}){
             <em>{plot}</em>
             </small>
             <br />
-            <Star />
-            <button>Dah nonton</button>
+            <Star setStarRating={setStarRating} />
+            <button onClick={handleAddFilm}>Dah nonton</button>
         </>
     )
 }
