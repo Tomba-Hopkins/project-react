@@ -16,21 +16,26 @@ function Film(){
     const [detailActive, setDetailActive]= useState(false)
     const [starRating, setStarRating] = useState(0)
     const [koleksiFilm, setKoleksiFilm] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
+
 
 
 
     useEffect(() => {
 
         const fetchFilm = async () => {
+            setIsLoading(true)
             const res = await fetch(`http://www.omdbapi.com/?apikey=${film_api}&s=${keyword}`)
             const data = await res.json()
             setListFilm(data.Search)
+            setIsLoading(false)
         }
 
         fetchFilm()
         
         
     }, [film_api, keyword])
+
 
 
     const handleDetailActive = () => {
@@ -53,7 +58,7 @@ function Film(){
                 margin: '3rem auto'
             }}>
                 <FilmSide>
-                    <FilmList setPilihIdFilm={setPilihIdFilm} handleDetailActive={handleDetailActive} listFilm={listFilm} />
+                    <FilmList isLoading={isLoading} setPilihIdFilm={setPilihIdFilm} handleDetailActive={handleDetailActive} listFilm={listFilm} />
                 </FilmSide>
 
                 <FilmSide>

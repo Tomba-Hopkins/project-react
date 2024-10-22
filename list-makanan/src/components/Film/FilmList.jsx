@@ -1,13 +1,19 @@
 /* eslint-disable react/prop-types */
 
+import Loading from '../Loading'
 import './film.css'
 
-export default function FilmList({listFilm, setPilihIdFilm, handleDetailActive}){
+export default function FilmList({listFilm, setPilihIdFilm, handleDetailActive, isLoading}){
     
     const handleClickBox = (id) => {
         setPilihIdFilm(id)
         handleDetailActive()
     }
+
+
+    if(isLoading) return <Loading/>
+
+
     
     return (
         <>
