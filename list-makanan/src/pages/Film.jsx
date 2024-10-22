@@ -48,7 +48,7 @@ function Film(){
             <main style={{
                 width: '100%',
                 display: 'flex',
-                border: '1px solid red',
+                // border: '1px solid red',
                 padding: '1rem',
                 margin: '3rem auto'
             }}>

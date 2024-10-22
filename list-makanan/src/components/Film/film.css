@@ -16,3 +16,20 @@
     background-color: #221919;
     border: 1px solid #646cff;
 }
+
+
+.koleksi {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    border-bottom: 1px solid #646cff;
+    padding-bottom: 0.2rem;
+}
+
+.koleksi img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}

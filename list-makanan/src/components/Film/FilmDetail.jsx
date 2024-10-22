@@ -65,6 +65,7 @@ export default function FilmDetail({handleDetailActive, pilihIdFilm, film_api, s
         
         handleKoleksiFilm(newDetail)
         handleDetailActive()
+        setStarRating(0)
     }
     
 
@@ -87,7 +88,7 @@ export default function FilmDetail({handleDetailActive, pilihIdFilm, film_api, s
             </small>
             <br />
             <Star setStarRating={setStarRating} />
-            <button onClick={handleAddFilm}>Dah nonton</button>
+            {starRating > 0 && <button onClick={handleAddFilm}>Dah nonton</button>}
         </>
     )
 }
