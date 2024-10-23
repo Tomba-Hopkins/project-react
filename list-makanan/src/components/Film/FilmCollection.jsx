@@ -4,12 +4,16 @@ import { useEffect, useState } from "react"
 export default function FilmCollection({koleksiFilm}){
 
     const [avgRating, setRating] = useState(0)
+    const [sumDurasi, setSumDurasi] = useState(0)
 
     useEffect(() => {
 
         if(koleksiFilm.length > 0) {
+            // console.log(koleksiFilm[0])
             const sum = koleksiFilm.reduce((acc, film) => acc + film.Rating, 0)
+            const sumDurasi = koleksiFilm.reduce((acc, film) => acc + parseInt(film.Runtime), 0)
             const avg = sum / koleksiFilm.length
+            setSumDurasi(sumDurasi)
             setRating(avg)
         }
 
@@ -22,7 +26,7 @@ export default function FilmCollection({koleksiFilm}){
             <section>
                 <h2>M Y Collection 👺</h2>
                 <h3>Summary</h3>
-                <p>⭐ {avgRating} | ⌛</p>
+                <p>⭐ {avgRating} | ⌛ {sumDurasi.toFixed()} min</p>
 
                 {koleksiFilm.map((film, index) => {                    
                     return (
