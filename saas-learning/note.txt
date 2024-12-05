@@ -1,0 +1,12 @@
+- app dari sisi mentor
+- bisa buat soal
+- kalau udah submit semua soal, generate link
+- jika seseorang mencet link, dia akan dibawa ke page soal2 yang dibuat mentor tadi
+- sebelum mengerjakan soal, pemencet link mengisi nama dia
+- ada batas waktu mengerjakan soal
+- soal pilihan ganda abcd
+- kalau sudah submit semua jawaban, mentor akan mendapatkan hasil pengerjaan dari orang yang mengerjakan
+- yang sudah dinilai otomatis oleh app juga
+- mentor akan mendapatkan data orang2 yang mengerjakan beserta nama nya
+- jika klik detail, dia akan mendapat detail dari soal dan jawaban yang dikerjakan
+- jika sudah lewat sehari, database akan otomatis menghapus data2 orang yang mengerjakan soal, dan soal tersebut
