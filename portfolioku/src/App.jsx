@@ -90,10 +90,18 @@ function App() {
               </span>
             </div>
           </motion.header>
+
+          <motion.h1
+            initial={{ x: 100 }}
+            whileInView={{ x: 0 }}
+            transition={{ duration: 0.5, ease: "easeIn" }}
+          >
+            About Me
+          </motion.h1>
           <motion.section
-            className="h-screen w-full flex flex-col md:flex-row gap-4 justify-evenly items-center"
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
+            className="h-screen w-full flex flex-col md:flex-row gap-4 justify-evenly items-center p-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
             viewport={{ amount: 0.5 }}
           >
@@ -107,35 +115,51 @@ function App() {
                     strings: [
                       `{
   name: 'smith',
-  age: '12',
-  isMarried: false
+  age: 'age < 25',
+  isMarried: false,
+  hobbies: ['Game', 'Music', 'Gym']
 }`,
                     ],
                     autoStart: true,
                     cursor: "_",
-                    delay: 1,
                     loop: true,
                   }}
                 />
               </pre>
             </motion.div>
             <motion.div className="bg-black w-full md:w-1/4 border-2 border-red-500 rounded-lg md:h-1/2 h-1/4 flex flex-col gap-4 p-8 text-xs md:text-sm">
-              <p>i{"'"}am happy with :</p>
-              <p>
+              <p>I{"'"}am happy with :</p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1 }}
+              >
                 <span className="text-red-500">{`>`}</span> Competitive
                 Programming
-              </p>
-              <p>
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1 }}
+              >
                 <span className="text-red-500">{`>`}</span> Web Developer
-              </p>
-              <p>
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1.5, delay: 1 }}
+              >
                 <span className="text-red-500">{`>`}</span> Red team{" "}
-                {"[linux, web]"}
-              </p>
-              <p>
+                {"[Web Vuln, CTF]"}
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 2, delay: 1 }}
+              >
                 <span className="text-red-500">{`>`}</span> Blue team{" "}
                 {"[Log analyst, SIEM]"}
-              </p>
+              </motion.p>
             </motion.div>
           </motion.section>
         </>
