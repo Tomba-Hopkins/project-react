@@ -21,7 +21,7 @@ function App() {
               initial={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeInOut" }}
               exit={{ y: -500 }}
-              className="w-full border-b border-b-slate-50 bg-gray-800 h-1/2 flex flex-col items-center justify-end"
+              className="w-full border-b border-b-green-400 bg-black h-1/2 flex flex-col items-center justify-end"
             >
               <p className="text-green-400 text-xl md:text-4xl">
                 Welcome to my portfolio
@@ -31,9 +31,11 @@ function App() {
               initial={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeInOut" }}
               exit={{ y: 500 }}
-              className="w-full border-t border-t-slate-50 bg-gray-800 h-1/2 flex flex-col items-center justify-start"
+              className="w-full border-t border-t-green4border-b-green-400 bg-black h-1/2 flex flex-col items-center justify-start"
             >
-              <p className="text-green-400 text-xl md:text-4xl">Made by me</p>
+              <p className="text-green-400 text-xl md:text-4xl">
+                Made by me {new Date().toLocaleTimeString()}
+              </p>
             </motion.div>
           </motion.main>
         )}
@@ -92,9 +94,11 @@ function App() {
           </motion.header>
 
           <motion.h1
-            initial={{ x: 100 }}
-            whileInView={{ x: 0 }}
-            transition={{ duration: 0.5, ease: "easeIn" }}
+            initial={{ scale: 0 }}
+            whileInView={{ scale: [1, 1.5, 0] }}
+            viewport={{ amount: 0.8 }}
+            transition={{ duration: 1, ease: "easeIn" }}
+            className="text-2xl"
           >
             About Me
           </motion.h1>
@@ -107,7 +111,8 @@ function App() {
           >
             <motion.div className="bg-black w-full md:w-1/4 border-2 border-green-400 rounded-lg h-1/4 md:h-1/2 flex flex-col gap-4 p-8 text-xs md:text-sm">
               <p>
-                <span className="text-green-400">{`>`}</span> cat me.json
+                <span className="text-green-400">{`user@portfolio>`}</span> cat
+                me.json
               </p>
               <pre className="text-white">
                 <TypewriterComponent
