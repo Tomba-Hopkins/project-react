@@ -13,7 +13,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-slate-900 via-black to-slate-900 text-slate-100 min-h-screen flex flex-col items-center">
+    <div className="bg-gradient-to-r from-slate-900 via-black to-slate-900 text-slate-100 min-h-screen flex flex-col items-center gap-20 overflow-hidden">
       <AnimatePresence>
         {!notSplash && (
           <motion.main className="w-full flex h-screen absolute flex-col overflow-hidden">
@@ -46,7 +46,7 @@ function App() {
           <motion.header
             className="h-screen w-full p-4 flex flex-col gap-8 justify-center items-center"
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            whileInView={{ opacity: 1, scale: [1, 0.8, 1] }}
             transition={{ duration: 1, delay: 1.5, ease: "easeIn" }}
           >
             <div className="flex items-center justify-center gap-8">
@@ -59,14 +59,14 @@ function App() {
                 Hello, i am smith
               </motion.p>
               <motion.img
-                className="w-14 h-14 md:w-24 md:h-24 rounded-full border-2 border-yellow-400"
+                className="w-14 h-14 cursor-pointer md:w-24 md:h-24 rounded-full border-2 border-yellow-400"
                 src="/img/me.jpg"
                 alt="me.jpg"
                 initial={{ x: 300 }}
                 animate={{ x: 0 }}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.7 }}
-                transition={{ duration: 0.9, stiffness: 50, delay: 1.5 }}
+                whileHover={{ scale: 0.7 }}
+                whileTap={{ scale: 0 }}
+                transition={{ duration: 0.9, stiffness: 50 }}
               />
             </div>
             <div className="flex justify-center items-center gap-4">
@@ -100,7 +100,10 @@ function App() {
             transition={{ duration: 1 }}
             viewport={{ amount: 0.5 }}
           >
-            <motion.div className="bg-black w-full md:w-1/4 border-2 border-green-400 rounded-lg h-1/4 md:h-1/2 flex flex-col gap-4 p-8 text-xs md:text-sm">
+            <h1 className="md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent md:-rotate-90">
+              About me
+            </h1>
+            <motion.div className="bg-black w-full md:w-1/4 border-2 border-green-400 rounded-lg h-1/3 md:h-1/2 flex flex-col gap-4 p-8 text-xs md:text-sm">
               <p>
                 <span className="text-green-400">{`user@portfolio>`}</span> cat
                 me.json
@@ -123,7 +126,7 @@ function App() {
                 />
               </pre>
             </motion.div>
-            <motion.div className="bg-black w-full md:w-1/4 border-2 border-red-500 rounded-lg md:h-1/2 h-1/4 flex flex-col gap-4 p-8 text-xs md:text-sm">
+            <motion.div className="bg-black w-full md:w-1/4 border-2 border-red-500 rounded-lg md:h-1/2 h-1/3 flex flex-col gap-4 p-8 text-xs md:text-sm">
               <p>I{"'"}am happy with :</p>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -160,31 +163,41 @@ function App() {
           </motion.section>
 
           <motion.section
-            className="w-full h-screen flex flex-col justify-center items-center p-8"
+            className="w-full min-h-screen flex flex-col justify-center items-center p-8 gap-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ amount: 0.8 }}
           >
-            <motion.div className="bg-black/30 backdrop-blur-md z-10 w-full border-2 border-indigo-500 rounded-lg md:h-full h-1/2 flex flex-col p-4 text-xs md:text-sm">
+            <h1 className="md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
+              Tech Stack
+            </h1>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ amount: 0.8 }}
+              className="bg-black/30 backdrop-blur-md z-10 w-full border-2 border-indigo-500 rounded-lg md:h-full h-1/2 flex flex-col p-4 text-xs md:text-sm"
+            >
               <img
                 src="/img/me.jpg"
                 alt="me"
                 className="absolute w-full h-full z-0 object-cover inset-0"
               />
               <div className="absolute z-10 inset-0 w-full h-full bg-black/80"></div>
-              <div className="z-20 w-full h-1/3 text-xs md:text-base p-2 md:p-8 flex flex-col md:gap-4 gap-2">
+
+              <div className="z-20 w-full h-1/4 text-xs md:text-base p-2 md:p-8 flex flex-col md:gap-4 gap-2">
                 <p className="text-slate-200">
                   {"["}
                   <span className="text-yellow-400">user@</span>
                   <span className="text-purple-400">portfolio </span>
-                  <span className="text-red-500">~/skill</span>
-                  {"]"}$ ls /Frontend
+                  <span className="text-red-500">~/skills</span>
+                  {"]"}$ ls /Web/Frontend
                 </p>
                 <div className="w-full flex gap-2 md:gap-8">
                   <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
+                    transition={{ duration: 0.5, delay: 1, ease: "easeIn" }}
                     className="text-orange-400"
                   >
                     HTML
@@ -192,7 +205,7 @@ function App() {
                   <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
+                    transition={{ duration: 1, delay: 1, ease: "easeIn" }}
                     className="text-blue-600"
                   >
                     CSS
@@ -200,7 +213,7 @@ function App() {
                   <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
+                    transition={{ duration: 1.5, delay: 1, ease: "easeIn" }}
                     className="text-yellow-400"
                   >
                     Javascript
@@ -208,7 +221,7 @@ function App() {
                   <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
+                    transition={{ duration: 2, delay: 1, ease: "easeIn" }}
                     className="text-sky-300"
                   >
                     TailwindCSS
@@ -216,116 +229,95 @@ function App() {
                   <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
+                    transition={{ duration: 2.5, delay: 1, ease: "easeIn" }}
                     className="text-sky-600"
                   >
                     React
                   </motion.p>
                 </div>
               </div>
-              <div className="z-20 w-full h-1/3 text-xs md:text-base p-2 md:p-8 flex flex-col md:gap-4 gap-2">
+              <div className="z-20 w-full h-1/4 text-xs md:text-base p-2 md:p-8 flex flex-col md:gap-4 gap-2">
                 <p className="text-slate-200">
                   {"["}
                   <span className="text-yellow-400">user@</span>
                   <span className="text-purple-400">portfolio </span>
-                  <span className="text-red-500">~/skill</span>
-                  {"]"}$ ls /Backend
+                  <span className="text-red-500">~/skills</span>
+                  {"]"}$ ls /Web/Backend
                 </p>
                 <div className="w-full flex gap-2 md:gap-8">
                   <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
-                    className="text-orange-400"
+                    transition={{ duration: 0.5, delay: 1.2, ease: "easeIn" }}
+                    className="text-green-600"
                   >
-                    HTML
+                    NodeJS
                   </motion.p>
                   <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
-                    className="text-blue-600"
+                    transition={{ duration: 1, delay: 1.2, ease: "easeIn" }}
+                    className="text-gray-400"
                   >
-                    CSS
+                    Express
                   </motion.p>
                   <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
-                    className="text-yellow-400"
+                    transition={{ duration: 1.5, delay: 1.2, ease: "easeIn" }}
+                    className="text-lime-500"
                   >
-                    Javascript
-                  </motion.p>
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
-                    className="text-sky-300"
-                  >
-                    TailwindCSS
-                  </motion.p>
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
-                    className="text-sky-600"
-                  >
-                    React
+                    MongoDB
                   </motion.p>
                 </div>
               </div>
-              <div className="z-20 w-full h-1/3 text-xs md:text-base p-2 md:p-8 flex flex-col md:gap-4 gap-2">
+              <div className="z-20 w-full h-1/4 text-xs md:text-base p-2 md:p-8 flex flex-col md:gap-4 gap-2">
                 <p className="text-slate-200">
                   {"["}
                   <span className="text-yellow-400">user@</span>
                   <span className="text-purple-400">portfolio </span>
-                  <span className="text-red-500">~/skill</span>
-                  {"]"}$ ls /Others
+                  <span className="text-red-500">~/skills</span>
+                  {"]"}$ ls /Web/Others
                 </p>
                 <div className="w-full flex gap-2 md:gap-8">
                   <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
-                    className="text-orange-400"
+                    transition={{ duration: 0.5, delay: 1.4, ease: "easeIn" }}
+                    className="text-red-600"
                   >
-                    HTML
+                    Git
                   </motion.p>
                   <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
-                    className="text-blue-600"
+                    transition={{ duration: 1, delay: 1.4, ease: "easeIn" }}
+                    className="text-blue-500"
                   >
-                    CSS
+                    Docker
                   </motion.p>
                   <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
-                    className="text-yellow-400"
-                  >
-                    Javascript
-                  </motion.p>
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
+                    transition={{ duration: 1.5, delay: 1.4, ease: "easeIn" }}
                     className="text-sky-300"
                   >
-                    TailwindCSS
-                  </motion.p>
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
-                    className="text-sky-600"
-                  >
-                    React
+                    Burpsuite
                   </motion.p>
                 </div>
               </div>
             </motion.div>
+          </motion.section>
+
+          <motion.section
+            className="min-h-screen overflow-y-hidden"
+            initial={{ y: 300 }}
+            whileInView={{ y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <h1 className="md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
+              My Project
+            </h1>
           </motion.section>
         </>
       )}
