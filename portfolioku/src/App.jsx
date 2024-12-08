@@ -12,6 +12,23 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  const projects = [
+    {
+      title: "QuizMaker App",
+      description: "You can make some quiz and get their score with this app",
+      techStack: [
+        "MongoDB",
+        "Express",
+        "React",
+        "NodeJS",
+        "TailwindCSS",
+        "Vite",
+      ],
+      link: "https://zingy-medovik-3d7c83.netlify.app/",
+      img: "/img/me.jpg",
+    },
+  ];
+
   return (
     <div className="bg-gradient-to-r from-slate-900 via-black to-slate-900 text-slate-100 min-h-screen flex flex-col items-center gap-20 overflow-hidden">
       <AnimatePresence>
@@ -310,14 +327,58 @@ function App() {
           </motion.section>
 
           <motion.section
-            className="min-h-screen overflow-y-hidden"
-            initial={{ y: 300 }}
+            className="w-full min-h-screen overflow-y-hidden flex flex-col justify-center items-center gap-4"
+            initial={{ y: 150 }}
             whileInView={{ y: 0 }}
+            viewport={{ amount: 0.8 }}
             transition={{ duration: 1 }}
           >
-            <h1 className="md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent">
+            <motion.h1
+              initial={{ y: 150, scale: 0 }}
+              whileInView={{ y: 0, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              viewport={{ amount: 0.6 }}
+              className="text-2xl md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
+            >
               My Project
-            </h1>
+            </motion.h1>
+            <div className="w-full min-h-screen px-12 md:p-12  flex flex-col md:flex-row items-center flex-wrap gap-8 justify-start">
+              {projects.map((project, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  transition={{ duration: 1, delay: 0.6 }}
+                  viewport={{ amount: 0.6 }}
+                  className="w-full relative md:w-1/4 h-32 border-2 border-slate-400 md:h-64 bg-white rounded-md"
+                >
+                  <img
+                    className="top-0 w-full h-1/2 object-cover z-0"
+                    src={project.img}
+                    alt={project.title}
+                  />
+                  <motion.div
+                    whileHover={{ opacity: 0 }}
+                    className="absolute top-0  w-full h-full object-cover z-10 bg-black/40"
+                  ></motion.div>
+
+                  <div className="h-1/2  flex flex-col p-2 text-slate-900">
+                    <p>{project.title}</p>
+                    <small>{project.description}</small>
+                    <div className="flex flex-wrap bottom-0 gap-2">
+                      {project.techStack.map((t, index) => (
+                        <small
+                          className="inline text-xs rounded-md bg-sky-600 text-slate-100"
+                          key={index}
+                        >
+                          #{t}
+                        </small>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.section>
         </>
       )}
