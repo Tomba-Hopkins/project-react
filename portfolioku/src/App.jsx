@@ -93,15 +93,6 @@ function App() {
             </div>
           </motion.header>
 
-          <motion.h1
-            initial={{ scale: 0 }}
-            whileInView={{ scale: [1, 1.5, 0] }}
-            viewport={{ amount: 0.8 }}
-            transition={{ duration: 1, ease: "easeIn" }}
-            className="text-2xl"
-          >
-            About Me
-          </motion.h1>
           <motion.section
             className="h-screen w-full flex flex-col md:flex-row gap-4 justify-evenly items-center p-8"
             initial={{ opacity: 0 }}
@@ -165,6 +156,175 @@ function App() {
                 <span className="text-red-500">{`>`}</span> Blue team{" "}
                 {"[Log analyst, SIEM]"}
               </motion.p>
+            </motion.div>
+          </motion.section>
+
+          <motion.section
+            className="w-full h-screen flex flex-col justify-center items-center p-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ amount: 0.8 }}
+          >
+            <motion.div className="bg-black/30 backdrop-blur-md z-10 w-full border-2 border-indigo-500 rounded-lg md:h-full h-1/2 flex flex-col p-4 text-xs md:text-sm">
+              <img
+                src="/img/me.jpg"
+                alt="me"
+                className="absolute w-full h-full z-0 object-cover inset-0"
+              />
+              <div className="absolute z-10 inset-0 w-full h-full bg-black/80"></div>
+              <div className="z-20 w-full h-1/3 text-xs md:text-base p-2 md:p-8 flex flex-col md:gap-4 gap-2">
+                <p className="text-slate-200">
+                  {"["}
+                  <span className="text-yellow-400">user@</span>
+                  <span className="text-purple-400">portfolio </span>
+                  <span className="text-red-500">~/skill</span>
+                  {"]"}$ ls /Frontend
+                </p>
+                <div className="w-full flex gap-2 md:gap-8">
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-orange-400"
+                  >
+                    HTML
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-blue-600"
+                  >
+                    CSS
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-yellow-400"
+                  >
+                    Javascript
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-sky-300"
+                  >
+                    TailwindCSS
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-sky-600"
+                  >
+                    React
+                  </motion.p>
+                </div>
+              </div>
+              <div className="z-20 w-full h-1/3 text-xs md:text-base p-2 md:p-8 flex flex-col md:gap-4 gap-2">
+                <p className="text-slate-200">
+                  {"["}
+                  <span className="text-yellow-400">user@</span>
+                  <span className="text-purple-400">portfolio </span>
+                  <span className="text-red-500">~/skill</span>
+                  {"]"}$ ls /Backend
+                </p>
+                <div className="w-full flex gap-2 md:gap-8">
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-orange-400"
+                  >
+                    HTML
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-blue-600"
+                  >
+                    CSS
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-yellow-400"
+                  >
+                    Javascript
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-sky-300"
+                  >
+                    TailwindCSS
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-sky-600"
+                  >
+                    React
+                  </motion.p>
+                </div>
+              </div>
+              <div className="z-20 w-full h-1/3 text-xs md:text-base p-2 md:p-8 flex flex-col md:gap-4 gap-2">
+                <p className="text-slate-200">
+                  {"["}
+                  <span className="text-yellow-400">user@</span>
+                  <span className="text-purple-400">portfolio </span>
+                  <span className="text-red-500">~/skill</span>
+                  {"]"}$ ls /Others
+                </p>
+                <div className="w-full flex gap-2 md:gap-8">
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-orange-400"
+                  >
+                    HTML
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-blue-600"
+                  >
+                    CSS
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-yellow-400"
+                  >
+                    Javascript
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-sky-300"
+                  >
+                    TailwindCSS
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                    className="text-sky-600"
+                  >
+                    React
+                  </motion.p>
+                </div>
+              </div>
             </motion.div>
           </motion.section>
         </>
