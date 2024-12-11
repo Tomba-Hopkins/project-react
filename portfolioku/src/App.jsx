@@ -1,14 +1,24 @@
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useScroll } from "motion/react";
 import { useEffect, useState } from "react";
 import TypewriterComponent from "typewriter-effect";
 
 function App() {
   const [notSplash, setNotSplash] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const days = [
+    "Minggu Turu 😪",
+    "Senin Malas😔",
+    "Selasa Yoi 😁",
+    "Rabu Lagi ☠️",
+    "Kamis Manis 👍",
+    "Jumat Sekedar Mengingatkan 🤖",
+    "Sabtu Santuy 🦖",
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setNotSplash(true);
-    }, 1000);
+    }, 5000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -32,9 +42,9 @@ function App() {
               initial={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeInOut" }}
               exit={{ y: -500 }}
-              className="w-full border-b border-b-green-400 bg-black h-1/2 flex flex-col items-center justify-end"
+              className="w-full border-b border-b-green-400 bg-black h-1/2 flex flex-col items-center justify-end p-4"
             >
-              <p className="text-green-400 text-xl md:text-4xl">
+              <p className="bg-gradient-to-r from-slate-600 to-white bg-clip-text text-transparent text-xl md:text-2xl">
                 Welcome to my portfolio
               </p>
             </motion.div>
@@ -42,10 +52,15 @@ function App() {
               initial={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeInOut" }}
               exit={{ y: 500 }}
-              className="w-full border-t border-t-green4border-b-green-400 bg-black h-1/2 flex flex-col items-center justify-start"
+              className="w-full border-t border-t-green4border-b-green-400 bg-black h-1/2 flex flex-col items-center justify-start p-4"
             >
-              <p className="text-green-400 text-xl md:text-4xl">
-                Made by me {new Date().toLocaleTimeString()}
+              <p className="text-white absolute p-4 flex w-full justify-between top-0 text-xs md:xl">
+                <span>{new Date().toLocaleTimeString()}</span>
+                <span>{days[new Date().getDay()]}</span>
+                <span>{new Date().getFullYear()}</span>
+              </p>
+              <p className="bg-gradient-to-r from-slate-600 to-white bg-clip-text text-transparent text-xl md:text-2xl">
+                Wait.....
               </p>
             </motion.div>
           </motion.main>
@@ -321,17 +336,15 @@ function App() {
           </motion.section>
 
           <motion.section
-            className="w-full min-h-screen overflow-y-hidden flex flex-col justify-center items-center gap-8"
+            className="w-full min-h-screen overflow-y-hidden flex flex-col  items-center gap-8"
             initial={{ y: 150 }}
             whileInView={{ y: 0 }}
-            viewport={{ amount: 0.8 }}
             transition={{ duration: 1 }}
           >
             <motion.h1
-              initial={{ y: 150, scale: 0 }}
+              initial={{ y: 300, scale: 0 }}
               whileInView={{ y: 0, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              viewport={{ amount: 0.6 }}
               className="text-2xl md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
             >
               My Project
@@ -343,7 +356,6 @@ function App() {
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   transition={{ duration: 1, delay: 0.6 }}
-                  viewport={{ amount: 0.6 }}
                   className="w-full relative my-12 md:my-0 md:w-1/4 min-h-48 md:h-72 bg-white rounded-md flex flex-col justify-between content-between gap-2"
                 >
                   <img
@@ -394,6 +406,128 @@ function App() {
               ))}
             </div>
           </motion.section>
+
+          <section className="w-full min-h-screen overflow-y-hidden flex flex-col items-center gap-8 pt-8">
+            <motion.h1
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="text-2xl md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
+            >
+              My Experience
+            </motion.h1>
+            <p>Zero experience 😔</p>
+          </section>
+
+          <section className="w-full min-h-screen overflow-y-hidden flex flex-col items-center gap-8 pt-8">
+            <motion.h1
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="text-2xl md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
+            >
+              We can be friends
+            </motion.h1>
+            <div className="w-full gap-8 items-center md:items-start min-h-screen flex p-8 flex-col md:flex-row flex-wrap">
+              <motion.a
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
+                href="https://github.com/zams-putra"
+                target="_blank"
+              >
+                Github
+              </motion.a>
+              <motion.a
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.6 }}
+                className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
+                href="https://leetcode.com/u/Sebasers/"
+                target="_blank"
+              >
+                LeetCode
+              </motion.a>
+              <motion.a
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.7 }}
+                className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
+                href="https://www.codewars.com/users/AwikwokBas"
+                target="_blank"
+              >
+                CodeWars
+              </motion.a>
+              <motion.a
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.8 }}
+                className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
+                href="https://www.hackerrank.com/profile/AwikwokBas"
+                target="_blank"
+              >
+                HackerRank
+              </motion.a>
+              <motion.a
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.9 }}
+                className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
+                href="https://tryhackme.com/r/p/TombaHK"
+                target="_blank"
+              >
+                TryHackMe
+              </motion.a>
+              <motion.a
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1 }}
+                className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
+                href="https://play.picoctf.org/users/deSebasers"
+                target="_blank"
+              >
+                PicoCTF
+              </motion.a>
+              <motion.a
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1.1 }}
+                className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
+                href="https://medium.com/@sirsebasers"
+                target="_blank"
+              >
+                Medium
+              </motion.a>
+              <motion.a
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1.1 }}
+                className="p-4 w-1/2 rounded-sm flex items-center justify-center md:w-32 h-10 bg-slate-100 text-slate-900"
+                href="https://instagram.com/username.gw.itu.jir"
+                target="_blank"
+              >
+                Instagram
+              </motion.a>
+            </div>
+          </section>
+
+          <section className="w-full h-screen flex justify-center items-center">
+            <motion.div
+              style={{
+                scaleX: scrollYProgress,
+              }}
+              className="fixed top-0 w-full h-1 bg-green-400"
+            ></motion.div>
+            <motion.h1
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="text-2xl md:text-4xl bg-gradient-to-r from-slate-500 to-slate-200 bg-clip-text text-transparent"
+            >
+              Thank you :)
+            </motion.h1>
+          </section>
         </>
       )}
     </div>
