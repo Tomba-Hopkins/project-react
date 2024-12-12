@@ -1,8 +1,11 @@
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes/routes";
 function App() {
   return (
-    <>
-      <h1 className="text-center">Finance app</h1>
-    </>
+    <BrowserRouter>
+      <p>Hao</p>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }
 
