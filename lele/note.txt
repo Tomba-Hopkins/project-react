@@ -1,0 +1,6 @@
+- ada shadcn ui disini -> install aja path terus ikutin kayak di docs nya
+
+
+- disini pakai firebase juga enak
+> ke firebase buat aja db baru -> nanti buat firestore 
+> buat aja db dummy nya isi field fieldnya
